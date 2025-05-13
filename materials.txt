@@ -1,0 +1,5 @@
+
+1. DS18B20 sensor
+2. idk if theres breadboard in that kit
+3. some resistors do we have them? 
+4. type-C to USB (i need to be able to connect to my laptop)
