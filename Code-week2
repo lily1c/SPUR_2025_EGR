@@ -1,0 +1,38 @@
+
+// First code that reads temperature set and lights up LEDs based on given threshold (4 digit display nit there yet)
+int redLED = 13;
+int blueLED = 2;
+
+// Simulated temperature readings
+int temperatures[] = {70, 70, 70, 10, 10, 10, 45, 60};
+int tempIndex = 0;
+
+void setup() {
+  pinMode(redLED, OUTPUT);
+  pinMode(blueLED, OUTPUT);
+}
+
+void loop() {
+  // Simulate a temperature reading
+  int tempC = temperatures[tempIndex];
+  tempIndex++;
+  if (tempIndex >= sizeof(temperatures) / sizeof(temperatures[0])) {
+    tempIndex = 0;
+  }
+
+  // Turn off both LEDs first
+  digitalWrite(redLED, LOW);
+  digitalWrite(blueLED, LOW);
+
+  if (tempC < 78) {
+    digitalWrite(blueLED, HIGH);
+    delay(500);
+    digitalWrite(blueLED, LOW);
+  } else {
+    digitalWrite(redLED, HIGH);
+    delay(500);
+    digitalWrite(redLED, LOW);
+  }
+
+  delay(1000); // Wait before next reading
+}
